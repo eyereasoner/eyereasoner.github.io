@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EYE N3 Reasoner</title>
-  <meta name="description" content="Overview of the EYE N3 Reasoner, its JavaScript/WebAssembly distributions, RDF/TriG experiments, examples, and related tools.">
+  <title>EYE Reasoners</title>
+  <meta name="description" content="Explore the EYE family of open reasoners for Notation3, RDF, RDF Surfaces, and related rule languages in Prolog, JavaScript, Python, Rust, Go, and WebAssembly.">
   <meta name="theme-color" content="#111827">
   <style>
     :root {
@@ -23,6 +23,11 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 1rem;
+    }
+
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -34,10 +39,24 @@
         var(--bg);
     }
 
-    a { color: var(--accent); text-decoration-thickness: .09em; text-underline-offset: .18em; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: .09em;
+      text-underline-offset: .18em;
+    }
+
     a:hover { color: var(--accent-2); }
 
-    header, main, footer { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    a:focus-visible {
+      outline: 3px solid var(--accent-2);
+      outline-offset: 3px;
+      border-radius: .2rem;
+    }
+
+    header, main, footer {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
 
     .hero {
       padding: 4.5rem 0 3rem;
@@ -92,6 +111,11 @@
       box-shadow: 0 1px 2px rgba(15, 23, 42, .05);
     }
 
+    .button:hover {
+      color: var(--accent-2);
+      border-color: #c4b5fd;
+    }
+
     .button.primary {
       color: white;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -138,7 +162,11 @@
       margin: 0 0 .75rem;
     }
 
-    .section-intro { margin: 0 0 1.15rem; color: var(--muted); max-width: 54rem; }
+    .section-intro {
+      margin: 0 0 1.15rem;
+      color: var(--muted);
+      max-width: 54rem;
+    }
 
     .grid {
       display: grid;
@@ -161,7 +189,14 @@
     }
 
     .card p { margin: 0; color: var(--muted); }
-    .card .links { margin-top: .85rem; display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    .card .links {
+      margin-top: .85rem;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
     .tag {
       display: inline-flex;
       align-items: center;
@@ -173,6 +208,34 @@
       font-size: .78rem;
       font-weight: 700;
       margin-bottom: .7rem;
+    }
+
+    .play-card {
+      position: relative;
+      padding-right: 3rem;
+    }
+
+    .play-card::after {
+      content: "↗";
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: var(--accent-2);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .play-card > a {
+      position: absolute;
+      inset: 0;
+      border-radius: 1.1rem;
+    }
+
+    .play-card > a:focus-visible { outline-offset: 3px; }
+
+    .play-card:hover {
+      border-color: #c4b5fd;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
     }
 
     .split {
@@ -193,7 +256,9 @@
       border: 1px solid rgba(255,255,255,.09);
     }
 
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
 
     .repo-list {
       columns: 2;
@@ -207,6 +272,15 @@
     .repo-list li {
       break-inside: avoid;
       margin: .38rem 0;
+      color: var(--muted);
+    }
+
+    .note {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border-left: 4px solid var(--accent-2);
+      border-radius: 0 .8rem .8rem 0;
+      background: var(--soft);
       color: var(--muted);
     }
 
@@ -227,77 +301,127 @@
       .hero { padding-top: 2.5rem; }
       .grid { grid-template-columns: 1fr; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
   <header class="hero">
     <div>
-      <p class="eyebrow">EYE N3 Reasoner</p>
-      <h1>Reasoning for the Semantic Web.</h1>
-      <p class="lede">EYE is the Euler Yet another proof Engine: an explainable rule reasoner for Notation3, RDF, RDF Surfaces, proofs, and web-scale logic experiments.</p>
+      <p class="eyebrow">EYE Reasoners</p>
+      <h1>Reasoning implemented in many languages.</h1>
+      <p class="lede">EYE has grown from one pioneering Prolog engine into a family of open, explainable reasoners for Notation3, RDF, RDF Surfaces, and related rule languages.</p>
       <nav class="actions" aria-label="Primary links">
-        <a class="button primary" href="https://eyereasoner.github.io/eye/">Open EYE docs</a>
+        <a class="button primary" href="#reasoners">Explore the reasoners</a>
+        <a class="button" href="#playgrounds">Try a playground</a>
         <a class="button" href="https://github.com/eyereasoner">GitHub organization</a>
-        <a class="button" href="https://eyereasoner.github.io/eye-js/example/">Try browser example</a>
       </nav>
     </div>
     <aside class="hero-card" aria-label="Project summary">
       <div class="mark" aria-hidden="true">◉</div>
-      <div class="stat"><strong>Core</strong><span>Notation3 reasoning</span></div>
-      <div class="stat"><strong>Modes</strong><span>forward + backward chaining</span></div>
-      <div class="stat"><strong>Runtimes</strong><span>Prolog, JavaScript, WebAssembly</span></div>
-      <div class="stat"><strong>License</strong><span>MIT in core repositories</span></div>
+      <div class="stat"><strong>Languages</strong><span>Prolog, JS, Python, Rust, Go</span></div>
+      <div class="stat"><strong>In-Browser</strong><span> interactive playgrounds</span></div>
+      <div class="stat"><strong>Explainable conclusions</strong><span>Trust</span></div>
+      <div class="stat"><strong>Open Source</strong><span>100%</span></div>
     </aside>
   </header>
 
   <main>
-    <section>
-      <h2>Start here</h2>
-      <p class="section-intro">Choose the entry point that matches how you want to use EYE: command line reasoning, JavaScript integration, browser demos, or RDF/TriG experiments.</p>
+    <section id="reasoners">
+      <h2>Choose a reasoner</h2>
+      <p class="section-intro">The EYE family offers several implementations and runtimes. Choose the one that best matches your environment, integration needs, and reasoning workload.</p>
       <div class="grid">
         <article class="card">
-          <span class="tag">Core reasoner</span>
+          <span class="tag">SWI-Prolog + C</span>
           <h3><a href="https://eyereasoner.github.io/eye/">EYE</a></h3>
-          <p>The main Euler Yet another proof Engine documentation, examples, architecture notes, and references.</p>
-          <p class="links"><a href="https://github.com/eyereasoner/eye">Repository</a><a href="https://eyereasoner.github.io/eye/">Site</a></p>
+          <p>The original Euler Yet another proof Engine: a mature N3 and RDF Surfaces reasoner with proof output.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eye/">Documentation</a><a href="https://github.com/eyereasoner/eye">Repository</a></p>
         </article>
+
         <article class="card">
-          <span class="tag">JavaScript + WASM</span>
+          <span class="tag">TypeScript + EYE/Wasm</span>
           <h3><a href="https://github.com/eyereasoner/eye-js">eye-js</a></h3>
-          <p>A distribution of the EYE reasoner for browser and Node.js applications using WebAssembly.</p>
-          <p class="links"><a href="https://github.com/eyereasoner/eye-js">Repository</a><a href="https://eyereasoner.github.io/eye-js/example/">Example</a></p>
+          <p>The original EYE engine compiled to WebAssembly and packaged for browser and Node.js applications.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eye-js/example/">Try it</a><a href="https://github.com/eyereasoner/eye-js">Repository</a></p>
         </article>
+
         <article class="card">
-          <span class="tag">JavaScript N3</span>
-          <h3><a href="https://github.com/eyereasoner/eyeling">eyeling</a></h3>
-          <p>A compact Notation3 reasoner in JavaScript for accountable facts, rules, goals, answers, and proofs.</p>
-          <p class="links"><a href="https://github.com/eyereasoner/eyeling">Repository</a><a href="https://eyereasoner.github.io/eyeling/">Site</a></p>
+          <span class="tag">JavaScript</span>
+          <h3><a href="https://github.com/eyereasoner/eyeling">Eyeling</a></h3>
+          <p>A compact N3 reasoner for Node.js, browsers, RDF pipelines, streaming messages, and accountable proofs.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyeling/playground">Playground</a><a href="https://github.com/eyereasoner/eyeling">Repository</a></p>
         </article>
+
         <article class="card">
-          <span class="tag">RDF TriG</span>
-          <h3><a href="https://eyereasoner.github.io/lingua/">lingua</a></h3>
-          <p>A reasoner using RDF TriG as the web lingua, with forward rules, backward rules, and queries described in RDF.</p>
-          <p class="links"><a href="https://github.com/eyereasoner/lingua">Repository</a><a href="https://eyereasoner.github.io/lingua/">Site</a></p>
+          <span class="tag">Python</span>
+          <h3><a href="https://github.com/eyereasoner/pyling">Pyling</a></h3>
+          <p>A Python port of Eyeling for N3 reasoning from Python code, notebooks, RDFLib graphs, or the command line.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/pyling/">Notebooks</a><a href="https://github.com/eyereasoner/pyling">Repository</a></p>
         </article>
+
         <article class="card">
-          <span class="tag">Browser demos</span>
-          <h3><a href="https://github.com/eyereasoner/eyebrow">eyebrow</a></h3>
-          <p>Archived browser experiments for running EYE-style examples such as Socrates, GPS, and other demos.</p>
-          <p class="links"><a href="https://eyereasoner.github.io/eyebrow/socrates.html">Socrates</a><a href="https://eyereasoner.github.io/eyebrow/gps.html">GPS</a></p>
+          <span class="tag">Rust + WebAssembly</span>
+          <h3><a href="https://github.com/eyereasoner/eyeron">Eyeron</a></h3>
+          <p>A Rust-based N3 reasoner that turns facts and rules into conclusions with verifiable proofs.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyeron/playground">Playground</a><a href="https://github.com/eyereasoner/eyeron">Repository</a></p>
         </article>
+
         <article class="card">
-          <span class="tag">Examples</span>
-          <h3><a href="https://github.com/eyereasoner/Notation3-By-Example">Notation3 by Example</a></h3>
-          <p>Example N3 scripts demonstrating built-in functions, linked data patterns, and practical reasoning tasks.</p>
-          <p class="links"><a href="https://github.com/eyereasoner/Notation3-By-Example">Repository</a><a href="https://editor.notation3.org/">N3 editor</a></p>
+          <span class="tag">Go · experimental</span>
+          <h3><a href="https://patrickhochstenbach.net/git/phochste/romeo">Romeo</a></h3>
+          <p>A fast, dependency-free forward-chaining N3 reasoner descended from Eyeling and distributed as a static binary.</p>
+          <p class="links"><a href="https://patrickhochstenbach.net/git/phochste/romeo">Source and guide</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="playgrounds">
+      <h2>Try one in your browser</h2>
+      <p class="section-intro">These hosted playgrounds let you edit and run examples without installing a local reasoner.</p>
+      <div class="grid">
+        <article class="card play-card">
+          <span class="tag">EYE via Wasm</span>
+          <h3>eye-js example</h3>
+          <p>Run the original EYE reasoner in a browser.</p>
+          <a href="https://eyereasoner.github.io/eye-js/example/" aria-label="Open the eye-js browser example"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">N3 · JavaScript</span>
+          <h3>Eyeling playground</h3>
+          <p>Experiment with the compact JavaScript engine.</p>
+          <a href="https://eyereasoner.github.io/eyeling/playground" aria-label="Open the Eyeling playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">N3 · Rust/Wasm</span>
+          <h3>Eyeron playground</h3>
+          <p>Reason with the Rust implementation through WebAssembly.</p>
+          <a href="https://eyereasoner.github.io/eyeron/playground" aria-label="Open the Eyeron playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">SHACL 1.2 Rules</span>
+          <h3>Eyeleng playground</h3>
+          <p>Try SRL and RDF Rules in a self-contained browser UI.</p>
+          <a href="https://eyereasoner.github.io/eyeleng/playground" aria-label="Open the Eyeleng playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Horn clauses</span>
+          <h3>Eyepl playground</h3>
+          <p>Explore a small Prolog-like reasoning language.</p>
+          <a href="https://eyereasoner.github.io/eyepl/playground" aria-label="Open the Eyepl playground"></a>
         </article>
       </div>
     </section>
 
     <section class="split">
       <div>
-        <h2>A tiny N3 example</h2>
-        <p class="section-intro">This is the familiar Socrates rule: if someone has a type whose class is a subclass of another class, infer the broader type.</p>
+        <h2>A shared starting point</h2>
+        <p class="section-intro">Many of the N3 engines can begin with the same familiar Socrates example: facts and an implication go in; a new, explainable conclusion comes out.</p>
       </div>
       <pre><code>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;.
 @prefix : &lt;http://example.org/socrates#&gt;.
@@ -310,28 +434,23 @@
 { ?S a ?B }.</code></pre>
     </section>
 
-    <section>
-      <h2>Project map</h2>
-      <p class="section-intro">Selected repositories in the EYE organization, grouped here as a quick index for contributors and users.</p>
+    <section id="ecosystem">
+      <h2>Wider EYE ecosystem</h2>
+      <p class="section-intro">Not every related project is another implementation of the EYE N3 engine. These close neighbours explore other rule languages, runtimes, and reasoning models.</p>
       <ul class="repo-list">
-        <li><a href="https://github.com/eyereasoner/eye">eye</a> — Euler Yet another proof Engine</li>
-        <li><a href="https://github.com/eyereasoner/eye-js">eye-js</a> — EYE for JavaScript via WebAssembly</li>
-        <li><a href="https://github.com/eyereasoner/eyeling">eyeling</a> — Notation3 reasoner in JavaScript</li>
-        <li><a href="https://github.com/eyereasoner/eyeleng">eyeleng</a> — SHACL 1.2 Rules logic engine</li>
-        <li><a href="https://github.com/eyereasoner/eyelang">eyelang</a> — Prolog-like logic programming language</li>
-        <li><a href="https://github.com/eyereasoner/lingua">lingua</a> — RDF TriG reasoner</li>
+        <li><a href="https://github.com/eyereasoner/eyelet">eyelet</a> — portable Prolog reasoning with eyelet clauses</li>
+        <li><a href="https://github.com/eyereasoner/eyeleng">Eyeleng</a> — SHACL 1.2 Rules in JavaScript</li>
+        <li><a href="https://github.com/eyereasoner/eyepl">Eyepl</a> — Prolog-like Horn clauses in JavaScript</li>
+        <li><a href="https://github.com/eyereasoner/lingua">lingua</a> — RDF/TriG graph rules</li>
         <li><a href="https://github.com/eyereasoner/rdfsurfaces-tests">rdfsurfaces-tests</a> — RDF Surfaces test kit</li>
-        <li><a href="https://github.com/eyereasoner/Notation3-By-Example">Notation3-By-Example</a> — N3 examples</li>
-        <li><a href="https://github.com/eyereasoner/Koreografeye">Koreografeye</a> — web choreography service using EYE</li>
-        <li><a href="https://github.com/eyereasoner/EyeServer">EyeServer</a> — server for the EYE reasoner</li>
-        <li><a href="https://github.com/eyereasoner/EyeClient">EyeClient</a> — browser widget for EYE</li>
-        <li><a href="https://github.com/eyereasoner/eyebrow">eyebrow</a> — browser reasoning demos</li>
+        <li><a href="https://github.com/eyereasoner/Notation3-By-Example">Notation3-By-Example</a> — practical N3 examples</li>
       </ul>
+      <p class="note">Looking for the broader reasoner landscape? Jos De Roo maintains an overview spanning N3, RDF Surfaces, Datalog, SHACL Rules, RIF, and first-order logic: <a href="https://github.com/josd/josd.github.io/blob/master/reasoners.md">view the full reasoners list</a>.</p>
     </section>
   </main>
 
   <footer>
-    <p>Maintained by the <a href="https://github.com/eyereasoner">EYE N3 Reasoner</a> organization. This page is intentionally static, dependency-free, and suitable for GitHub Pages.</p>
+    <p>Maintained by the <a href="https://github.com/eyereasoner">EYE Reasoner</a> community. This page is intentionally static, dependency-free, and suitable for GitHub Pages.</p>
   </footer>
 </body>
 </html>
