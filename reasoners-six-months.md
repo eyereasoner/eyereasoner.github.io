@@ -127,7 +127,9 @@ Eyeleng grew from a SHACL Rules implementation into a practical hybrid engine.
 
 # Door 3 — Eyepl
 
-**Eyepl** combines EYE-style reasoning with **Prolog-like logic programming**.
+Standards are crucial for durable, interoperable reasoning.
+
+**Eyepl combines ISO Prolog and W3C RDF 1.2** to turn portable rules and linked data into answers and inspectable proofs—without inventing another proprietary language or data model.
 
 Its core provides:
 
@@ -145,11 +147,11 @@ Eyepl gives Prolog users a route to RDF—and linked-data users a compact relati
 
 # What happened in Eyepl
 
-Eyepl became a standards-conscious Prolog-style reasoner with an RDF bridge.
+Eyepl brought two established standards together in one reasoner.
 
-- The core was aligned with ISO Prolog concepts and error behavior.
+- The reasoning language was aligned with standard ISO Prolog behavior.
 - Optional library predicates were separated clearly from the core.
 - Automatic tabling and demand-driven indexes improved recursive workloads.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
-- *The Art of Eyepl*, browser tooling, conformance tests, and examples made the language easier to learn and verify.
+- [*The Art of Eyepl*](https://eyereasoner.github.io/eyepl/the-art-of-eyepl), browser tooling, conformance tests, and examples made the language easier to learn and verify.
