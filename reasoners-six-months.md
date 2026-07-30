@@ -1,4 +1,5 @@
 ---
+layout: slides
 marp: true
 theme: default
 paginate: true
@@ -152,4 +153,3 @@ Eyepl became a standards-conscious Prolog-style reasoner with an RDF bridge.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
 - *The Art of Eyepl*, browser tooling, conformance tests, and examples made the language easier to learn and verify.
-

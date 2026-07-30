@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    body {
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    h1 {
+      margin-top: 3.5rem;
+      line-height: 1.15;
+    }
+
+    body > h1:first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      line-height: 1.25;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: .65rem;
+      border: 1px solid currentColor;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    pre, blockquote {
+      padding: 1rem;
+      border-radius: .5rem;
+      background: color-mix(in srgb, CanvasText 8%, Canvas);
+    }
+
+    blockquote {
+      margin-inline: 0;
+      border-left: .3rem solid currentColor;
+    }
+
+    hr {
+      margin: 4rem 0;
+      border: 0;
+      border-top: 1px solid color-mix(in srgb, CanvasText 30%, Canvas);
+    }
+  </style>
+</head>
+<body>
+  {{ content }}
+</body>
+</html>
