@@ -154,4 +154,4 @@ Eyepl brought two established standards together in one reasoner.
 - Automatic tabling and demand-driven indexes improved recursive workloads.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
-- [*The Art of Eyepl*](https://eyereasoner.github.io/eyepl/the-art-of-eyepl), browser tooling, conformance tests, and examples made the language easier to learn and verify.
+- [*The Art of Eyepl*](https://eyereasoner.github.io/eyepl/the-art-of-eyepl) book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
