@@ -4,12 +4,12 @@ marp: true
 theme: default
 paginate: true
 title: One Home, Three Doors
-description: Eyeling, Eyeleng, and Eyepl — three ways into explainable reasoning
+description: Eyeling, Eyeleng, and WebEntail — three ways into explainable reasoning
 ---
 
 # One home, three doors
 
-## Eyeling · Eyeleng · Eyepl
+## Eyeling · Eyeleng · WebEntail
 
 Three ways into explainable reasoning
 
@@ -57,7 +57,7 @@ The home is **explainable reasoning**:
 |---|---|---|
 | **Eyeling** | Notation3 and the Semantic Web | Linked-data rules and proofs |
 | **Eyeleng** | SHACL and RDF rules | Standards-oriented RDF processing |
-| **Eyepl** | Prolog and relational programming | Logic programs with RDF interchange |
+| **WebEntail** | Prolog and relational programming | Logic programs with RDF interchange |
 
 The projects share ideas, but each offers a different language and starting point.
 
@@ -125,11 +125,11 @@ Eyeleng grew from a SHACL Rules implementation into a practical hybrid engine.
 
 ---
 
-# Door 3 — Eyepl
+# Door 3 — WebEntail
 
 Standards are crucial for durable, interoperable reasoning.
 
-**Eyepl combines ISO Prolog and W3C RDF 1.2** to turn portable rules and linked data into answers and inspectable proofs—without inventing another proprietary language or data model.
+**WebEntail combines ISO Prolog and W3C RDF 1.2** to turn portable rules and linked data into answers and inspectable proofs—without inventing another proprietary language or data model.
 
 Its core provides:
 
@@ -139,19 +139,19 @@ Its core provides:
 - demand-driven clause indexing;
 - tools that map RDF 1.2 datasets to and from relational facts.
 
-Eyepl gives Prolog users a route to RDF—and linked-data users a compact relational rule language.
+WebEntail gives Prolog users a route to RDF—and linked-data users a compact relational rule language.
 
 **In one phrase:** portable logic programs with an RDF 1.2 bridge.
 
 ---
 
-# What happened in Eyepl
+# What happened in WebEntail
 
-Eyepl brought two established standards together in one reasoner.
+WebEntail brought two established standards together in one reasoner.
 
 - The reasoning language was aligned with standard ISO Prolog behavior.
 - Optional library predicates were separated clearly from the core.
 - Automatic tabling and demand-driven indexes improved recursive workloads.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
-- [*The Art of Eyepl*](https://eyereasoner.github.io/eyepl/the-art-of-eyepl) book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
+- [*The Art of WebEntail*](https://eyereasoner.github.io/webentail/the-art-of-webentail) book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
