@@ -79,7 +79,7 @@ Eyeling emphasizes:
 
 ---
 
-# What happened in Eyeling
+## What happened in Eyeling
 
 Eyeling became a more focused and capable N3 reasoner.
 
@@ -92,11 +92,9 @@ Eyeling became a more focused and capable N3 reasoner.
 
 ---
 
-## Door 2 — Eyeleng
+# Door 2 — Eyeleng
 
-**Eyeleng** means **EYE Logic Engine**.
-
-It is a JavaScript implementation centered on **SHACL Rules**, with:
+**Eyeleng** is a JavaScript implementation centered on **SHACL Rules**, with:
 
 - a compact **SRL** rule syntax;
 - an **RDF Rules** syntax;
