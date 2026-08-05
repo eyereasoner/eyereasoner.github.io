@@ -146,4 +146,4 @@ EyeDual brought two established standards together in one reasoner.
 - Automatic tabling and demand-driven indexes improved recursive workloads.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
-- [*The Art of EyeDual*](https://eyereasoner.github.io/eyedual/the-art-of-eyedual) book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
+- **The Art of EyeDual** book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
