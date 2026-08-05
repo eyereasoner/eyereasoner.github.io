@@ -77,8 +77,6 @@ Eyeling emphasizes:
 - command-line, JavaScript API, and browser use;
 - a broad library of executable examples.
 
-**In one phrase:** linked-data reasoning that stays close to the Web stack.
-
 ---
 
 # What happened in Eyeling
@@ -94,7 +92,7 @@ Eyeling became a more focused and capable N3 reasoner.
 
 ---
 
-# Door 2 — Eyeleng
+## Door 2 — Eyeleng
 
 **Eyeleng** means **EYE Logic Engine**.
 
@@ -108,11 +106,9 @@ It is a JavaScript implementation centered on **SHACL Rules**, with:
 
 SHACL describes what good RDF data should look like. SHACL Rules can also derive new data from those descriptions.
 
-**In one phrase:** standards-facing RDF rules with practical query planning.
-
 ---
 
-# What happened in Eyeleng
+## What happened in Eyeleng
 
 Eyeleng grew from a SHACL Rules implementation into a practical hybrid engine.
 
@@ -141,11 +137,9 @@ Its core provides:
 
 EyeDual gives Prolog users a route to RDF—and linked-data users a compact relational rule language.
 
-**In one phrase:** portable logic programs with an RDF 1.2 bridge.
-
 ---
 
-# What happened in EyeDual
+## What happened in EyeDual
 
 EyeDual brought two established standards together in one reasoner.
 
