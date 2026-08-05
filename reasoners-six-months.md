@@ -47,7 +47,7 @@ The same pattern can be applied to:
 
 ---
 
-# One home, three different doors
+# One home, two different doors
 
 The home is **explainable reasoning**:
 
