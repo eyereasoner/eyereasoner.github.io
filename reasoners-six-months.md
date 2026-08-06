@@ -3,15 +3,15 @@ layout: slides
 marp: true
 theme: default
 paginate: true
-title: One Home, Two Doors
-description: Eyeling and Eyelang — two ways into explainable reasoning
+title: One Home, Three Doors
+description: Eyeling, Eyeleng, and EyeDual — three ways into explainable reasoning
 ---
 
-# One home, two doors
+# One home, three doors
 
-## Eyeling · Eyelang
+## Eyeling · Eyeleng · EyeDual
 
-Two ways into explainable reasoning
+Three ways into explainable reasoning
 
 ---
 
@@ -24,8 +24,6 @@ A reasoner is software that combines:
 - **questions** — what we want to discover.
 
 It produces new conclusions—and can preserve enough evidence to explain where those conclusions came from.
-
-> Think of a spreadsheet whose formulas can work over a web of knowledge, not just cells.
 
 ---
 
@@ -47,7 +45,7 @@ The same pattern can be applied to:
 
 ---
 
-# One home, two different doors
+# One home, three different doors
 
 The home is **explainable reasoning**:
 
@@ -56,7 +54,8 @@ The home is **explainable reasoning**:
 | Door | Way in | Best fit |
 |---|---|---|
 | **Eyeling** | Notation3 and the Semantic Web | Linked-data rules and proofs |
-| **Eyelang** | Prolog and relational programming | Logic programs with RDF interchange |
+| **Eyeleng** | SHACL and RDF rules | Standards-oriented RDF processing |
+| **EyeDual** | Prolog and relational programming | Logic programs with RDF interchange |
 
 The projects share ideas, but each offers a different language and starting point.
 
@@ -87,14 +86,42 @@ Eyeling became a more focused and capable N3 reasoner.
 - RDF Message logs gained replay and streaming workflows.
 - Parsing, indexing, memoization, and memory use were improved.
 - The browser playground and collection of practical examples grew.
+- SHACL and SRL work moved into the separate **Eyeleng** project.
 
 ---
 
-# Door 2 — Eyelang
+# Door 2 — Eyeleng
+
+**Eyeleng** is a JavaScript implementation centered on **SHACL Rules**, with:
+
+- a compact **SRL** rule syntax;
+- an **RDF Rules** syntax;
+- RDF 1.1 and RDF 1.2 support;
+- W3C tests and machine-readable conformance reports;
+- forward, backward, and automatically hybrid reasoning.
+
+SHACL describes what good RDF data should look like. SHACL Rules can also derive new data from those descriptions.
+
+---
+
+## What happened in Eyeleng
+
+Eyeleng grew from a SHACL Rules implementation into a practical hybrid engine.
+
+- SHACL Rules, SRL, and RDF Rules were brought together.
+- W3C conformance tests and EARL reports were added.
+- RDF parsing and semantics were strengthened.
+- Forward and backward reasoning were combined automatically.
+- Recursion, generated identifiers, and selective indexes were improved.
+- A playground, examples, and golden-output tests made behavior easier to explore.
+
+---
+
+# Door 3 — EyeDual
 
 Standards are crucial for durable, interoperable reasoning.
 
-**Eyelang combines ISO Prolog and W3C RDF 1.2** to turn portable rules and linked data into answers and inspectable proofs—without inventing another proprietary language or data model.
+**EyeDual combines ISO Prolog and W3C RDF 1.2** to turn portable rules and linked data into answers and inspectable proofs—without inventing another proprietary language or data model.
 
 Its core provides:
 
@@ -104,17 +131,17 @@ Its core provides:
 - demand-driven clause indexing;
 - tools that map RDF 1.2 datasets to and from relational facts.
 
-Eyelang gives Prolog users a route to RDF—and linked-data users a compact relational rule language.
+EyeDual gives Prolog users a route to RDF—and linked-data users a compact relational rule language.
 
 ---
 
-## What happened in Eyelang
+## What happened in EyeDual
 
-Eyelang brought two established standards together in one reasoner.
+EyeDual brought two established standards together in one reasoner.
 
 - The reasoning language was aligned with standard ISO Prolog behavior.
 - Optional library predicates were separated clearly from the core.
 - Automatic tabling and demand-driven indexes improved recursive workloads.
 - RDF 1.2 conversion and round-trip tools were added.
 - Proofs, explicit queries, safety checks, and inference fuses were developed.
-- **The Art of Eyelang** book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
+- **The Art of EyeDual** book, browser tooling, conformance tests, and examples made the language easier to learn and verify.
