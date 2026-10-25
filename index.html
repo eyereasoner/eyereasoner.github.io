@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EYE Reasoners</title>
-  <meta name="description" content="Explore the EYE family of open reasoners for Notation3, RDF, RDF Surfaces, and related rule languages in Prolog, JavaScript, Python, Rust, Go, and WebAssembly.">
+  <meta name="description" content="Explore the EYE family of open reasoners for Notation3, RDF, SPARQL 1.2 RL, and Prolog-style rule languages with checkable proofs, in Prolog, JavaScript, Python, Rust, Go, and WebAssembly.">
   <meta name="theme-color" content="#111827">
   <style>
     :root {
@@ -312,7 +312,7 @@
     <div>
       <p class="eyebrow">EYE Reasoners</p>
       <h1>Reasoning implemented in many languages.</h1>
-      <p class="lede">EYE has grown from one pioneering Prolog engine into a family of open, explainable reasoners for Notation3, RDF, RDF Surfaces, and related rule languages.</p>
+      <p class="lede">EYE has grown from one pioneering Prolog engine into a family of open reasoners for Notation3, RDF, SPARQL 1.2 RL, and Prolog-style rule languages, where an answer can arrive with a proof that another program can check.</p>
       <nav class="actions" aria-label="Primary links">
         <a class="button primary" href="#reasoners">Explore the reasoners</a>
         <a class="button" href="#playgrounds">Try a playground</a>
@@ -322,16 +322,16 @@
     <aside class="hero-card" aria-label="Project summary">
       <div class="mark" aria-hidden="true">◉</div>
       <div class="stat"><strong>Languages</strong><span>Prolog, JS, Python, Rust, Go</span></div>
-      <div class="stat"><strong>In-Browser</strong><span> interactive playgrounds</span></div>
-      <div class="stat"><strong>Explainable conclusions</strong><span>Trust</span></div>
+      <div class="stat"><strong>In-browser</strong><span>10 playgrounds</span></div>
+      <div class="stat"><strong>Every answer</strong><span>Answer · Reason · Check</span></div>
       <div class="stat"><strong>Open Source</strong><span>100%</span></div>
     </aside>
   </header>
 
   <main>
     <section id="reasoners">
-      <h2>Choose a reasoner</h2>
-      <p class="section-intro">The EYE family offers several implementations and runtimes. Choose the one that best matches your environment, integration needs, and reasoning workload.</p>
+      <h2>Notation3 reasoners</h2>
+      <p class="section-intro">The EYE family offers several Notation3 implementations and runtimes. Choose the one that best matches your environment, integration needs, and reasoning workload.</p>
       <div class="grid">
         <article class="card">
           <span class="tag">SWI-Prolog + C</span>
@@ -364,7 +364,7 @@
         <article class="card">
           <span class="tag">Rust + WebAssembly</span>
           <h3><a href="https://github.com/eyereasoner/eyeron">Eyeron</a></h3>
-          <p>A Rust-based N3 reasoner that turns facts and rules into conclusions with verifiable proofs.</p>
+          <p>A Rust N3 reasoner that derives conclusions, writes N3 proofs, and checks them, as a CLI, library, or browser app.</p>
           <p class="links"><a href="https://eyereasoner.github.io/eyeron/playground">Playground</a><a href="https://github.com/eyereasoner/eyeron">Repository</a></p>
         </article>
 
@@ -373,6 +373,54 @@
           <h3><a href="https://patrickhochstenbach.net/git/phochste/romeo">Romeo</a></h3>
           <p>A fast, dependency-free forward-chaining N3 reasoner descended from Eyeling and distributed as a static binary.</p>
           <p class="links"><a href="https://patrickhochstenbach.net/git/phochste/romeo">Source and guide</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="rule-languages">
+      <h2>Rule languages with checkable proofs</h2>
+      <p class="section-intro">A newer generation of EYE engines works with Prolog-style facts and rules or with SPARQL. They share one bargain: an answer can come with the reasoning behind it, and a separate checker can verify that proof against the program.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">JavaScript · ISO Prolog + RDF 1.2</span>
+          <h3><a href="https://eyereasoner.github.io/eyeprolog/">EyeProlog</a></h3>
+          <p>Turns portable ISO Prolog programs into answers and inspectable proofs, with automatic tabling and RDF 1.2 interchange. Documented in <a href="https://eyereasoner.github.io/eyeprolog/the-art-of-eyeprolog"><em>The Art of EyeProlog</em></a>.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyeprolog/playground">Playground</a><a href="https://github.com/eyereasoner/eyeprolog">Repository</a></p>
+        </article>
+
+        <article class="card">
+          <span class="tag">JavaScript</span>
+          <h3><a href="https://eyereasoner.github.io/eyeon/">eyeon</a></h3>
+          <p>A symbolic logic programming language in a subset of Prolog, with query explanations, executable checks, and independently checked proof certificates.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyeon/TUTORIAL/">Tutorial</a><a href="https://eyereasoner.github.io/eyeon/playground/">Playground</a><a href="https://github.com/eyereasoner/eyeon">Repository</a></p>
+        </article>
+
+        <article class="card">
+          <span class="tag">JavaScript</span>
+          <h3><a href="https://github.com/eyereasoner/eyedia">Eyedia</a></h3>
+          <p>Reasoning you can see: a dependency-free Prolog rule language that combines forward <code>:+</code> and backward <code>:-</code> rules with checkable proofs.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyedia/playground/">Playground</a><a href="https://github.com/eyereasoner/eyedia">Repository</a></p>
+        </article>
+
+        <article class="card">
+          <span class="tag">Python</span>
+          <h3><a href="https://eyereasoner.github.io/peye/">peye</a></h3>
+          <p>A standalone, dependency-free Python rule language with forward and backward reasoning, checkable proofs, and a conformance suite.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/peye/playground/">Playground</a><a href="https://github.com/eyereasoner/peye">Repository</a></p>
+        </article>
+
+        <article class="card">
+          <span class="tag">Rust + WebAssembly</span>
+          <h3><a href="https://eyereasoner.github.io/wheye/">wheye</a></h3>
+          <p>A small relational reasoner: a Prolog subset with tabled recursion and independently checked proof certificates.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/wheye/playground/">Playground</a><a href="https://github.com/eyereasoner/wheye">Repository</a></p>
+        </article>
+
+        <article class="card">
+          <span class="tag">JavaScript · SPARQL 1.2 RL</span>
+          <h3><a href="https://eyereasoner.github.io/eyeleng/">Eyeleng</a></h3>
+          <p>An implementation of SPARQL 1.2 RL (SRL) tracking the W3C draft, with stratification, forward and backward evaluation, and a conformance harness.</p>
+          <p class="links"><a href="https://eyereasoner.github.io/eyeleng/playground">Playground</a><a href="https://github.com/eyereasoner/eyeleng">Repository</a></p>
         </article>
       </div>
     </section>
@@ -403,17 +451,52 @@
         </article>
 
         <article class="card play-card">
-          <span class="tag">SHACL 1.2 Rules</span>
+          <span class="tag">SPARQL 1.2 RL</span>
           <h3>Eyeleng playground</h3>
-          <p>Try SRL and RDF Rules in a self-contained browser UI.</p>
+          <p>Run SRL rule sets over RDF 1.2 data in the browser.</p>
           <a href="https://eyereasoner.github.io/eyeleng/playground" aria-label="Open the Eyeleng playground"></a>
         </article>
 
         <article class="card play-card">
-          <span class="tag">Horn clauses</span>
+          <span class="tag">ISO Prolog</span>
           <h3>EyeProlog playground</h3>
-          <p>Explore a small Prolog-like reasoning language.</p>
+          <p>Run portable Prolog programs with inspectable proofs.</p>
           <a href="https://eyereasoner.github.io/eyeprolog/playground" aria-label="Open the EyeProlog playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Prolog subset</span>
+          <h3>eyeon playground</h3>
+          <p>Ask, explain with <code>why</code>, and check assertions.</p>
+          <a href="https://eyereasoner.github.io/eyeon/playground/" aria-label="Open the eyeon playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Forward + backward</span>
+          <h3>Eyedia playground</h3>
+          <p>See derivations and verify their proof certificates.</p>
+          <a href="https://eyereasoner.github.io/eyedia/playground/" aria-label="Open the Eyedia playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Python</span>
+          <h3>peye playground</h3>
+          <p>Write Python rules and run the conformance suite in the browser.</p>
+          <a href="https://eyereasoner.github.io/peye/playground/" aria-label="Open the peye playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Rust/Wasm</span>
+          <h3>wheye playground</h3>
+          <p>Try tabled recursion and checked proof certificates.</p>
+          <a href="https://eyereasoner.github.io/wheye/playground/" aria-label="Open the wheye playground"></a>
+        </article>
+
+        <article class="card play-card">
+          <span class="tag">Law as rules</span>
+          <h3>eyelee playground</h3>
+          <p>Evaluate Dutch-law questions with Answer, Reason, and Check.</p>
+          <a href="https://eyereasoner.github.io/eyelee/playground" aria-label="Open the eyelee playground"></a>
         </article>
       </div>
     </section>
@@ -421,7 +504,12 @@
     <section class="split">
       <div>
         <h2>A shared starting point</h2>
-        <p class="section-intro">Many of the N3 engines can begin with the same familiar Socrates example: facts and an implication go in; a new, explainable conclusion comes out.</p>
+        <p class="section-intro">Almost every engine can begin with the same familiar Socrates example: facts and a rule go in; a conclusion comes out, together with the reasoning that supports it.</p>
+        <pre><code>human(socrates).
+mortal(Person) :- human(Person).
+
+?- mortal(Who).
+?- why.</code></pre>
       </div>
       <pre><code>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;.
 @prefix : &lt;http://example.org/socrates#&gt;.
@@ -436,11 +524,12 @@
 
     <section id="ecosystem">
       <h2>Wider EYE ecosystem</h2>
-      <p class="section-intro">Not every related project is another implementation of the EYE N3 engine. These close neighbours explore other rule languages, runtimes, and reasoning models.</p>
+      <p class="section-intro">These close neighbours build on the reasoners above: drivers, applications, interchange tools, and test suites.</p>
       <ul class="repo-list">
-        <li><a href="https://github.com/eyereasoner/eyelet">eyelet</a> — portable Prolog reasoning with eyelet clauses</li>
-        <li><a href="https://github.com/eyereasoner/eyeleng">Eyeleng</a> — SHACL 1.2 Rules in JavaScript</li>
-        <li><a href="https://github.com/eyereasoner/eyeprolog">EyeProlog</a> — Prolog-like Horn clauses in JavaScript</li>
+        <li><a href="https://github.com/eyereasoner/eyelet">eyelet</a> — EYE reasoning in portable Prolog with <code>:+</code> bottom-up rules</li>
+        <li><a href="https://github.com/eyereasoner/eyelee">eyelee</a> — law execution engine with Answer, Reason, and Check</li>
+        <li><a href="https://github.com/eyereasoner/rdf-prolog-interchange">rdf-prolog-interchange</a> — reversible RDF 1.2 ↔ ISO Prolog <code>rdf/4</code> facts</li>
+        <li><a href="https://github.com/eyereasoner/Koreografeye">Koreografeye</a> — web choreography service using EYE</li>
         <li><a href="https://github.com/eyereasoner/lingua">lingua</a> — RDF/TriG graph rules</li>
         <li><a href="https://github.com/eyereasoner/rdfsurfaces-tests">rdfsurfaces-tests</a> — RDF Surfaces test kit</li>
         <li><a href="https://github.com/eyereasoner/Notation3-By-Example">Notation3-By-Example</a> — practical N3 examples</li>
